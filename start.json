@@ -10,7 +10,7 @@
         "env": {},
         "input": null,
         "message": [
-          "{{platform === 'darwin' ? 'python app_mac.py' : 'python app.py'}}"
+          "{{platform === 'darwin' ? 'python app_mac.py' : (platform === 'win32' && gpu === 'amd' ? 'python app_amd.py' : 'python app.py')}}"
         ],
         "on": [
           {
