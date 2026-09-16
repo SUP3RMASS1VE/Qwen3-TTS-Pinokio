@@ -1,4 +1,7 @@
 {
+  "requires": {
+    "bundle": "ai"
+  },
   "run": [
     {
       "method": "shell.run",
@@ -9,11 +12,11 @@
       }
     },
     {
-      "method": "shell.run",
+      "when": "{{platform === 'win32' && gpu === 'amd'}}",
+      "method": "fs.copy",
       "params": {
-        "message": [
-          "conda install -y sox"
-        ]
+        "src": "app_amd.py",
+        "dest": "app/app_amd.py"
       }
     },
     {

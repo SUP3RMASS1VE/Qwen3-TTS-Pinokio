@@ -39,7 +39,7 @@ module.exports = {
       "params": {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
-        "message": "uv pip install torch torch-directml torchaudio torchvision numpy==1.26.4 --force-reinstall"
+        "message": "uv pip install torch==2.4.1 torch-directml==0.2.5.dev240914 torchaudio==2.4.1 torchvision==0.19.1 numpy==1.26.4 --force-reinstall"
       },
       "next": null
     },
