@@ -12,6 +12,14 @@
       "method": "shell.run",
       "params": {
         "message": [
+          "python patch_app.py"
+        ]
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "message": [
           "conda install -y sox"
         ]
       }
