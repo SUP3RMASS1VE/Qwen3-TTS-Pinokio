@@ -1,10 +1,25 @@
+const fs = require("fs")
+const path = require("path")
+
+// app/venv is created before dependencies install, so an interrupted or failed
+// install would still look installed; require gradio to actually be present.
+const depsInstalled = () => {
+  const venv = path.join(__dirname, "app", "venv")
+  if (fs.existsSync(path.join(venv, "Lib", "site-packages", "gradio"))) return true
+  try {
+    return fs.readdirSync(path.join(venv, "lib")).some((d) => fs.existsSync(path.join(venv, "lib", d, "site-packages", "gradio")))
+  } catch {
+    return false
+  }
+}
+
 module.exports = {
   version: "5.0",
   title: "Qwen3-TTS",
   description: "Qwen3-TTS is an open-source series of TTS models developed by the Qwen team",
   icon: "icon.png",
   menu: async (kernel, info) => {
-    let installed = info.exists("app/venv")
+    let installed = depsInstalled()
     let running = {
       install: info.running("install.json"),
       start: info.running("start.json"),
