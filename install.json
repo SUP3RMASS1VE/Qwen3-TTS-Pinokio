@@ -4,7 +4,7 @@
       "method": "shell.run",
       "params": {
         "message": [
-          "git clone https://github.com/SUP3RMASS1VE/Qwen3-TTS app"
+          "git clone https://github.com/SUP3RMASS1VE/Qwen3-TTS app || echo app already cloned"
         ]
       }
     },
